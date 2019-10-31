@@ -1,0 +1,3 @@
+//This is a query that allows the code to selct a specfic thing in a query
+SELECT column1, column2, 
+FROM table_name;
