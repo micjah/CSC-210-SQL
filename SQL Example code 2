@@ -1,3 +1,10 @@
-//This is a query that allows the code to selct a specfic thing in a query
+--This is a query that allows the code to selct a specfic thing in a query
+3.
 SELECT column1, column2, 
 FROM table_name;
+-- This is used to find code that is in a specfic place 
+
+SELECT column1, column2, 
+FROM alaska;
+
+
