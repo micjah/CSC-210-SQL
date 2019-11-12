@@ -3,7 +3,7 @@
 Retrieving Data Using a DataReader
 
 In the following code example, you execute a simple query on a Microsoft SQL Server database and read the results using a DataReader. This example uses the emp table.
-
+1.
 Open connection to SQL Server database
 SQLServerConnection Conn;
 try
@@ -21,6 +21,8 @@ return;
 }
 try
 {
+2.
+// makes a brand program just by changing a command
 // Create a SQL command
 string strSQL = "SELECT ename FROM emp WHERE sal>50000";
 SQLServerCommand DBCmd = new SQLServerCommand(strSQL, Conn);
