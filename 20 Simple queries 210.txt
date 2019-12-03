@@ -1,0 +1,61 @@
+Simples QUERIES
+
+This query can be run to retrieve the list of tables present in a database where the database is “My_Schema”.
+	SELECT * FROM My_Schema.Tables;
+  Query for Selecting Columns from a Table
+	SELECT Student_ID FROM STUDENT;
+If you want to display all the attributes from a particular table, this is the right query to use:
+1	SELECT * FROM STUDENT;
+3.   Query for Outputting Data Using a Constraint
+This SQL query retrieves the specified attributes from the table on the constraint Employee ID =0000
+1	SELECT EMP_ID, NAME FROM EMPLOYEE_TBL WHERE EMP_ID = '0000';
+4. Query for Outputting Sorted Data Using ‘Order By’
+	SELECT EMP_ID, LAST_NAME FROM EMPLOYEE
+WHERE CITY = 'Seattle' ORDER BY EMP_ID;
+The ordering of the result can also be set manually, using “asc ” for ascending and “desc” for descending.
+	SELECT EMP_ID, LAST_NAME FROM EMPLOYEE_TBL
+	WHERE CITY = 'INDIANAPOLIS' ORDER BY EMP_ID asc;
+5.   SQL Query for Outputting Sorted Data Using ‘Group By’
+2	SELECT Name, Age FROM Patients WHERE Age > 40 
+	GROUP BY Name, Age ORDER BY Name;
+	SELECT COUNT(price), price FROM orders 
+WHERE price < 70 GROUP BY price ORDER BY price
+SQL Queries for Data Manipulation Using Math Functions
+6. Data Manipulation Using COUNT
+SELECT COUNT(CustomerID), Country FROM Customers GROUP BY Country;
+7. Data Manipulation Using SUM	
+SELECT SUM(Salary)FROM Employee WHERE Emp_Age < 30;
+8. Data Manipulation Using AVG
+SELECT AVG(Price)FROM Products;
+9.   SQL Query for Listing all Views
+SELECT * FROM My_Schema.views;
+10. Query for Creating a View
+	CREATE VIEW Failing_Students AS
+	SELECT S_NAME, Student_ID
+	FROM STUDENT
+	WHERE GPA > 40;
+11. Query for Retrieving a View.
+1	SELECT * FROM Failing_Students;
+12. Query for Updating a View
+	CREATE OR REPLACE VIEW [ Product List] AS
+	SELECT ProductID, ProductName, Category
+	FROM Products
+	WHERE Discontinued = No;
+13. Query for Dropping a View
+This query will drop or delete a view named ‘V1’.
+	DROP VIEW V1;
+14. Query to Display User Tables
+	SELECT * FROM Sys.objects WHERE Type='u'
+15. Query to Display Primary Keys
+1	SELECT * from Sys.Objects WHERE Type='PK'
+16. Query for Displaying Unique Keys
+1	SELECT * FROM Sys.Objects WHERE Type='uq'
+17. Displaying Foreign Keys
+	SELECT * FROM Sys.Objects WHERE Type='f'
+18. Displaying Triggers
+	SELECT * FROM Sys.Objects WHERE Type='tr'
+19. Displaying Internal Tables
+1	SELECT * FROM Sys.Objects WHERE Type='it'
+20. Displaying a List of Procedures
+1	SELECT * FROM Sys.Objects WHERE Type='p'
+
