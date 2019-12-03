@@ -8,3 +8,21 @@ SELECT column1, column2,
 FROM alaska;
 
 
+New Query
+
+
+The following example uses named notation to provide parameters; using named notation, you can omit parameters that have default values or re-order parameters:
+CallableStatement cstmt = con.prepareCall
+  ("{CALL hire_emp(ename => ?,
+                   job => ?,
+                   empno => ?,
+                   sal => ?,
+                   deptno => ?
+                   )}");
+//Bind a value to each parameter.
+  cstmt.setString("ename", "SMITH");
+  cstmt.setInt("empno", 8888);
+  cstmt.setString("job", "Sales");
+  cstmt.setInt("sal", 5500);
+  cstmt.setInt("deptno", 30);
+
