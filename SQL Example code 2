@@ -1,4 +1,4 @@
---This is a query that allows the code to selct a specfic thing in a query
+-28. This is a query that allows the code to selct a specfic thing in a query
 3.
 SELECT column1, column2, 
 FROM table_name;
@@ -8,7 +8,7 @@ SELECT column1, column2,
 FROM alaska;
 
 
-New Query
+New Query 29
 
 
 The following example uses named notation to provide parameters; using named notation, you can omit parameters that have default values or re-order parameters:
