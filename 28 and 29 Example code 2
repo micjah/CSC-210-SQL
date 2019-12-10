@@ -1,6 +1,7 @@
 28. 
 ---This is a query that allows the code to selct a specfic thing in a query
----Made by me 
+---Made by me
+--- Challenge problem
 
 SELECT column1, column2, 
 FROM table_name;
@@ -16,7 +17,10 @@ New Query 29
 The following example uses named notation to provide parameters; using named notation, you can omit parameters that have default values or re-order parameters:
 CallableStatement cstmt = con.prepareCall
   ("{CALL hire_emp(ename => ?,
- --- Made by me                   job => ?,
+ --- Made by me  
+ --- Challenge problem 
+ ---Sqllite 
+          job => ?,
                    empno => ?,
                    sal => ?,
                    deptno => ?
