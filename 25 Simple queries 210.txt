@@ -49,6 +49,7 @@ SELECT * FROM My_Schema.views;
 	WHERE GPA > 40;
 14. 
 ---Query for Retrieving a View.
+--- Made by me 
 	SELECT * FROM Failing_Students;
 15.
 ---Query for Updating a View
@@ -58,13 +59,16 @@ SELECT * FROM My_Schema.views;
 	WHERE Discontinued = No;
 16.
 ---Query for Dropping a View
+--- made by me 
 This query will drop or delete a view named ‘V1’.
 	DROP VIEW V1;
 17. 
 ---Query to Display User Tables
+--- made by me 
 	SELECT * FROM Sys.objects WHERE Type='u'
 18.
 ---Query to Display Primary Keys
+--- made by me 
 	SELECT * from Sys.Objects WHERE Type='PK'
 19.
 ---Query for Displaying Unique Keys
