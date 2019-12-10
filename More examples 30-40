@@ -1,4 +1,5 @@
-30.  First, it declares a variable of type NUMBER to store the quantity of tennis rackets on hand. Then, it retrieves the quantity on hand from a database table named inventory.  
+30.  
+---First, it declares a variable of type NUMBER to store the quantity of tennis rackets on hand. Then, it retrieves the quantity on hand from a database table named inventory.  
 DECLARE
    qty_on_hand  NUMBER(5);
 BEGIN
@@ -16,28 +17,32 @@ BEGIN
    END IF;
    COMMIT;
 END;
- 31 Declaring variables 
+ 31 
+ ---Declaring variables 
  
  part_no  NUMBER(4);
 in_stock BOOLEAN;
 
 32 
-Assigns the values to variables 
+---Assigns the values to variables 
 tax := price * tax_rate;
 valid_id := FALSE;
 bonus := current_salary * 0.10;
 wages := gross_pay(emp_id, st_hrs, ot_hrs) - deductions;
 
-33. Declaring constants 
+33.
+---Declaring constants 
 
 credit_limit CONSTANT REAL := 5000.00;
 
-34. Declare cursors 
+34. 
+---Declare cursors 
 DECLARE
    CURSOR c1 IS
       SELECT empno, ename, job FROM emp WHERE deptno = 20;
       
-35. declaring cursors in loops 
+35. 
+---declaring cursors in loops 
 DECLARE
    CURSOR c1 IS
       SELECT ename, sal, hiredate, deptno FROM emp;
@@ -48,7 +53,9 @@ BEGIN
       salary_total :=  salary_total + emp_rec.sal;
    END LOOP;
    
-   36. Cursor Variables 
+   36. 
+   ---Cursor Variables 
+   --- made by me
    PROCEDURE open_cv (generic_cv IN OUT GenericCurTyp,choice NUMBER) IS
 BEGIN
    IF choice = 1 THEN
@@ -61,7 +68,9 @@ BEGIN
    ...
 END;
 
-37.The CASE expression evaluates a condition and returns a value for each case. 
+37.
+---The CASE expression evaluates a condition and returns a value for each case. 
+---made by me 
 
 This CASE statement performs different actions based
 -- on a set of conditional tests.
@@ -82,7 +91,9 @@ shape);
     END;
 END CASE;
 
-38. Sequential control
+38. 
+---Sequential control
+--- made by me 
 IF rating > 90 THEN
    GOTO calc_raise;  -- branch to label
 END IF;
@@ -94,7 +105,9 @@ ELSE
    amount := salary * 0.10;
 END IF;
 
-39. Subprograms 
+39. 
+---Subprograms
+--- made by me 
 PROCEDURE award_bonus (emp_id NUMBER) IS
    bonus        REAL;
    comm_missing EXCEPTION;
@@ -110,7 +123,9 @@ EXCEPTION  -- exception-handling part starts here
       ...
 END award_bonus;
 
-40. Packages 
+40. 
+---Packages 
+---Made by me
 CREATE PACKAGE emp_actions AS  -- package specification
    PROCEDURE hire_employee (empno NUMBER, ename CHAR, ...);
    PROCEDURE fire_employee (emp_id NUMBER);
