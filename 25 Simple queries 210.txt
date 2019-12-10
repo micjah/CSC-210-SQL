@@ -1,60 +1,84 @@
-Simples QUERIES
+Simples QUERIES W3Schools.com 
 
-1. This query can be run to retrieve the list of tables present in a database where the database is “My_Schema”.
+1.
+---This query can be run to retrieve the list of tables present in a database where the database is “My_Schema”.
 	SELECT * FROM My_Schema.Tables;
- 2. Query for Selecting Columns from a Table
+ 2. 
+ ---Query for Selecting Columns from a Table
 	SELECT Student_ID FROM STUDENT;
-3. If you want to display all the attributes from a particular table, this is the right query to use:	SELECT * FROM STUDENT;
-4.  Query for Outputting Data Using a Constraint
-5. This SQL query retrieves the specified attributes from the table on the constraint Employee ID =0000
+3. 
+---If you want to display all the attributes from a particular table, this is the right query to use:	
+SELECT * FROM STUDENT;
+4.  
+---Query for Outputting Data Using a Constraint
+5. 
+---This SQL query retrieves the specified attributes from the table on the constraint Employee ID =0000
 	SELECT EMP_ID, NAME FROM EMPLOYEE_TBL WHERE EMP_ID = '0000';
-6. Query for Outputting Sorted Data Using ‘Order By’
+6. 
+---Query for Outputting Sorted Data Using ‘Order By’
 	SELECT EMP_ID, LAST_NAME FROM EMPLOYEE
 	WHERE CITY = 'Seattle' ORDER BY EMP_ID;
-7. The ordering of the result can also be set manually, using “asc ” for ascending and “desc” for descending.
+7. 
+---The ordering of the result can also be set manually, using “asc ” for ascending and “desc” for descending.
 	SELECT EMP_ID, LAST_NAME FROM EMPLOYEE_TBL
 	WHERE CITY = 'INDIANAPOLIS' ORDER BY EMP_ID asc;
-8.   SQL Query for Outputting Sorted Data Using ‘Group By’
+8.   
+---SQL Query for Outputting Sorted Data Using ‘Group By’
 	SELECT Name, Age FROM Patients WHERE Age > 40 
 	GROUP BY Name, Age ORDER BY Name;
 	SELECT COUNT(price), price FROM orders 
 	WHERE price < 70 GROUP BY price ORDER BY price
-SQL Queries for Data Manipulation Using Math Functions
-9. Data Manipulation Using COUNT
+---SQL Queries for Data Manipulation Using Math Functions
+9. 
+---Data Manipulation Using COUNT
 SELECT COUNT(CustomerID), Country FROM Customers GROUP BY Country;
-10. Data Manipulation Using SUM	
+10. 
+---Data Manipulation Using SUM	
 SELECT SUM(Salary)FROM Employee WHERE Emp_Age < 30;
-11. Data Manipulation Using AVG
+11.
+---Data Manipulation Using AVG
 SELECT AVG(Price)FROM Products;
-12.   SQL Query for Listing all Views
+12.   
+---SQL Query for Listing all Views
 SELECT * FROM My_Schema.views;
-13. Query for Creating a View
+13. 
+---Query for Creating a View
 	CREATE VIEW Failing_Students AS
 	SELECT S_NAME, Student_ID
 	FROM STUDENT
 	WHERE GPA > 40;
-14. Query for Retrieving a View.
+14. 
+---Query for Retrieving a View.
 	SELECT * FROM Failing_Students;
-15. Query for Updating a View
+15.
+---Query for Updating a View
 	CREATE OR REPLACE VIEW [ Product List] AS
 	SELECT ProductID, ProductName, Category
 	FROM Products
 	WHERE Discontinued = No;
-16. Query for Dropping a View
+16.
+---Query for Dropping a View
 This query will drop or delete a view named ‘V1’.
 	DROP VIEW V1;
-17. Query to Display User Tables
+17. 
+---Query to Display User Tables
 	SELECT * FROM Sys.objects WHERE Type='u'
-18. Query to Display Primary Keys
+18.
+---Query to Display Primary Keys
 	SELECT * from Sys.Objects WHERE Type='PK'
-19. Query for Displaying Unique Keys
+19.
+---Query for Displaying Unique Keys
 	SELECT * FROM Sys.Objects WHERE Type='uq'
-22. Displaying Foreign Keys
+22.
+---Displaying Foreign Keys
 	SELECT * FROM Sys.Objects WHERE Type='f'
-23. Displaying Triggers
+23. 
+---Displaying Triggers
 	SELECT * FROM Sys.Objects WHERE Type='tr'
-24. Displaying Internal Tables
+24. 
+---Displaying Internal Tables
 	SELECT * FROM Sys.Objects WHERE Type='it'
-25. Displaying a List of Procedures
+25. 
+---Displaying a List of Procedures
 	SELECT * FROM Sys.Objects WHERE Type='p'
 
