@@ -1,0 +1,132 @@
+30.  First, it declares a variable of type NUMBER to store the quantity of tennis rackets on hand. Then, it retrieves the quantity on hand from a database table named inventory.  
+DECLARE
+   qty_on_hand  NUMBER(5);
+BEGIN
+   SELECT quantity INTO qty_on_hand FROM inventory
+      WHERE product = 'TENNIS RACKET'
+      FOR UPDATE OF quantity;
+   IF qty_on_hand > 0 THEN  -- check quantity
+      UPDATE inventory SET quantity = quantity - 1
+         WHERE product = 'TENNIS RACKET';
+      INSERT INTO purchase_record
+         VALUES ('Tennis racket purchased', SYSDATE);
+   ELSE
+      INSERT INTO purchase_record
+         VALUES ('Out of tennis rackets', SYSDATE);
+   END IF;
+   COMMIT;
+END;
+ 31 Declaring variables 
+ 
+ part_no  NUMBER(4);
+in_stock BOOLEAN;
+
+32 
+Assigns the values to variables 
+tax := price * tax_rate;
+valid_id := FALSE;
+bonus := current_salary * 0.10;
+wages := gross_pay(emp_id, st_hrs, ot_hrs) - deductions;
+
+33. Declaring constants 
+
+credit_limit CONSTANT REAL := 5000.00;
+
+34. Declare cursors 
+DECLARE
+   CURSOR c1 IS
+      SELECT empno, ename, job FROM emp WHERE deptno = 20;
+      
+35. declaring cursors in loops 
+DECLARE
+   CURSOR c1 IS
+      SELECT ename, sal, hiredate, deptno FROM emp;
+   ...
+BEGIN
+   FOR emp_rec IN c1 LOOP
+      ...
+      salary_total :=  salary_total + emp_rec.sal;
+   END LOOP;
+   
+   36. Cursor Variables 
+   PROCEDURE open_cv (generic_cv IN OUT GenericCurTyp,choice NUMBER) IS
+BEGIN
+   IF choice = 1 THEN
+      OPEN generic_cv FOR SELECT * FROM emp;
+   ELSIF choice = 2 THEN
+      OPEN generic_cv FOR SELECT * FROM dept;
+   ELSIF choice = 3 THEN
+      OPEN generic_cv FOR SELECT * FROM salgrade;
+   END IF;
+   ...
+END;
+
+37.The CASE expression evaluates a condition and returns a value for each case. 
+
+This CASE statement performs different actions based
+-- on a set of conditional tests.
+CASE
+  WHEN shape = 'square' THEN area := side * side;
+  WHEN shape = 'circle' THEN 
+    BEGIN
+      area := pi * (radius * radius);
+      DBMS_OUTPUT.PUT_LINE('Value is not exact because pi is 
+irrational.');
+    END;
+  WHEN shape = 'rectangle' THEN area := length * width;
+  ELSE
+    BEGIN
+      DBMS_OUTPUT.PUT_LINE('No formula to calculate area of a' || 
+shape);
+      RAISE PROGRAM_ERROR;
+    END;
+END CASE;
+
+38. Sequential control
+IF rating > 90 THEN
+   GOTO calc_raise;  -- branch to label
+END IF;
+...
+<<calc_raise>>
+IF job_title = 'SALESMAN' THEN  -- control resumes here
+   amount := commission * 0.25;
+ELSE
+   amount := salary * 0.10;
+END IF;
+
+39. Subprograms 
+PROCEDURE award_bonus (emp_id NUMBER) IS
+   bonus        REAL;
+   comm_missing EXCEPTION;
+BEGIN  -- executable part starts here
+   SELECT comm * 0.15 INTO bonus FROM emp WHERE empno = emp_id;
+   IF bonus IS NULL THEN
+      RAISE comm_missing;
+   ELSE
+      UPDATE payroll SET pay = pay + bonus WHERE empno = emp_id;
+   END IF;
+EXCEPTION  -- exception-handling part starts here
+   WHEN comm_missing THEN
+      ...
+END award_bonus;
+
+40. Packages 
+CREATE PACKAGE emp_actions AS  -- package specification
+   PROCEDURE hire_employee (empno NUMBER, ename CHAR, ...);
+   PROCEDURE fire_employee (emp_id NUMBER);
+END emp_actions;
+
+CREATE PACKAGE BODY emp_actions AS  -- package body
+   PROCEDURE hire_employee (empno NUMBER, ename CHAR, ...) IS
+   BEGIN
+      INSERT INTO emp VALUES (empno, ename, ...);
+   END hire_employee;
+   PROCEDURE fire_employee (emp_id NUMBER) IS
+   BEGIN
+      DELETE FROM emp WHERE empno = emp_id;
+   END fire_employee;
+END emp_actions;
+      
+
+ 
+ 
