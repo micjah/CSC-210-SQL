@@ -1,4 +1,5 @@
-Simples QUERIES W3Schools.com 
+Simples QUERIES
+Sources for all: W3Schools.com 
 
 1.
 ---This query can be run to retrieve the list of tables present in a database where the database is “My_Schema”.
