@@ -19,12 +19,14 @@ BEGIN
 END;
  31 
  ---Declaring variables 
+ --- Made by me 
  
  part_no  NUMBER(4);
 in_stock BOOLEAN;
 
 32 
 ---Assigns the values to variables 
+--- MAde by me 
 tax := price * tax_rate;
 valid_id := FALSE;
 bonus := current_salary * 0.10;
@@ -32,17 +34,20 @@ wages := gross_pay(emp_id, st_hrs, ot_hrs) - deductions;
 
 33.
 ---Declaring constants 
+--- mAde by me 
 
 credit_limit CONSTANT REAL := 5000.00;
 
 34. 
 ---Declare cursors 
+--- Made by me 
 DECLARE
    CURSOR c1 IS
       SELECT empno, ename, job FROM emp WHERE deptno = 20;
       
 35. 
----declaring cursors in loops 
+---declaring cursors in loops
+---Made by me 
 DECLARE
    CURSOR c1 IS
       SELECT ename, sal, hiredate, deptno FROM emp;
