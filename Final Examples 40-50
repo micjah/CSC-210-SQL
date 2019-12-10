@@ -1,0 +1,121 @@
+40. 
+---Data Abstraction
+---Made by me 
+DECLARE
+   TYPE Staff IS TABLE OF Employee;
+   staffer Employee;
+   FUNCTION new_hires (hiredate DATE) RETURN Staff IS 
+   BEGIN ... END;
+BEGIN
+   staffer := new_hires('10-NOV-98')(5);
+   ...
+END;
+41.
+---Made by me 
+DECLARE
+   TYPE TimeRec IS RECORD (hours SMALLINT, minutes SMALLINT);
+   TYPE MeetingTyp IS RECORD (
+      date_held DATE,
+      duration  TimeRec,  -- nested record
+      location  VARCHAR2(20),
+      purpose   VARCHAR2(50));
+42. 
+---Object types 
+REATE TYPE Bank_Account AS OBJECT ( 
+   acct_number INTEGER(5),
+   balance     REAL,
+   status      VARCHAR2(10),
+   MEMBER PROCEDURE open (amount IN REAL),
+   MEMBER PROCEDURE verify_acct (num IN INTEGER),
+   MEMBER PROCEDURE close (num IN INTEGER, amount OUT REAL),
+   MEMBER PROCEDURE deposit (num IN INTEGER, amount IN REAL),
+   MEMBER PROCEDURE withdraw (num IN INTEGER, amount IN REAL),
+   MEMBER FUNCTION curr_bal (num IN INTEGER) RETURN REAL 
+43. 
+---Error handling
+---made by me 
+DECLARE
+   ...
+   comm_missing EXCEPTION;  -- declare exception
+BEGIN
+   ...
+   IF commission IS NULL THEN
+      RAISE comm_missing;  -- raise exception
+   END IF;
+   bonus := (salary * 0.10) + (commission * 0.15);
+EXCEPTION
+   WHEN comm_missing THEN ... -- process the exception
+   
+44. 
+---Database Triggers 
+
+CREATE TRIGGER audit_sal
+   AFTER UPDATE OF sal ON emp
+   FOR EACH ROW
+BEGIN
+   INSERT INTO emp_audit VALUES ...
+END;
+45. 
+---String Laterals 
+--- made by me 
+'Hello, world!'
+'XYZ Corporation'
+'10-NOV-91'
+'He said "Life is like licking honey from a thorn."'
+'$1,000,000'
+
+46.
+---Date time laterals 
+DECLARE
+d1 DATE := DATE '1998-12-25';
+t1 TIMESTAMP := TIMESTAMP '1997-10-22 13:01:01';
+t2 TIMESTAMP WITH TIME ZONE := TIMESTAMP '1997-01-31 09:26:56.66 
++02:00';
+-- Three years and two months
+-- (For greater precision, we would use the day-to-second interval)
+i1 INTERVAL YEAR TO MONTH := INTERVAL '3-2' YEAR TO MONTH;
+-- Five days, four hours, three minutes, two and 1/100 seconds
+i2 INTERVAL DAY TO SECOND := INTERVAL '5 04:03:02.01' DAY TO SECOND;
+47.
+---single line comments 
+-- begin processing
+SELECT sal INTO salary FROM emp  -- get current salary
+   WHERE empno = emp_id;
+bonus := salary * 0.15;  -- compute bonus amount
+
+48
+
+---multiline comments
+--- made by me 
+BEGIN
+   ...
+   /* Compute a 15% bonus for top-rated employees. */
+   IF rating > 90 THEN
+      bonus := salary * 0.15 /* bonus is based on salary */
+   ELSE
+      bonus := 0;
+   END IF;
+   ...
+   /* The following line computes the area of a 
+      circle using pi, which is the ratio between 
+      the circumference and diameter. */
+   area := pi * radius**2;
+END;
+
+49.
+---Using Rowtypes
+DECLARE
+   emp_rec emp%ROWTYPE;
+   CURSOR c1 IS SELECT deptno, dname, loc FROM dept;
+   dept_rec c1%ROWTYPE;
+   
+50.
+---Aggregate Assignment
+DECLARE
+   dept_rec1 dept%ROWTYPE;
+   dept_rec2 dept%ROWTYPE;
+   CURSOR c1 IS SELECT deptno, dname, loc FROM dept;
+   dept_rec3 c1%ROWTYPE;
+BEGIN
+   ...
+   dept_rec1 := dept_rec2;
